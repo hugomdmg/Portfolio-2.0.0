@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        nav {
+            background-color: #adc154;
+            padding: 15px;
+            color: white;
+        }
+
+        nav .nav-links {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .nav-links a {
+            color: white;
+            margin-left: 15px;
+            font-weight: bold;
+        }
+
+        nav .title {
+            font-size: 20px;
+        }
+
+        .list-item {
+            background-color: white;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .list-item img {
+            width: 250px;
+            height: 150px;
+            border-radius: 5px;
+            margin-right: 15px;
+        }
+
+        .list-item .content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .list-item .content a {
+            color: #007bff;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .list-item .content p {
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-links">
+            <div class="title">Hugo Muñoz -> portfolio</div>
+            <div>
+                <a href="https://linkedin.com/in/hugomdmg" target="_blank">LinkedIn</a>
+                <a href="https://github.com/hugomdmg" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Projects List</h1>
+        <div id="list-container"></div>
+    </div>
+
+    <script>
+        const listData = [
+            {
+                title: "YourSite web",
+                image: "public/freelance.png",
+                link: "https://freelance-app-six.vercel.app/",
+                description: "A web application where developers can manage customers and projects. You can log in as an admin or customer; check the explanation text on entry.",
+                github: "https://github.com/hugomdmg/freelance_yoursite",
+                technologies: "React, Node.js, Tailwind, Express.js, MongoDB, Docker, bcrypt, i18n"
+            },
+            {
+                title: "Lidar visualicer",
+                image: "public/lidar.png",
+                link: "https://lidar-theta.vercel.app/",
+                description: "Visualize LiDAR data in a 3D point cloud format.",
+                github: "https://github.com/hugomdmg/lidar",
+                technologies: "Three.js, React.js, JavaScript"
+            },
+            {
+                title: "Solar System",
+                image: "public/solar-system.png",
+                link: "https://solar-system-explore.vercel.app/",
+                description: "A realistic Solar System simulation at scale, including gravitational interactions. Explore planets by clicking them or using the ship mode. View other users' ships in real-time.",
+                github: "https://github.com/hugomdmg/solar_system_explore",
+                technologies: "Three.js, React.js, JavaScript"
+            },
+            {
+                title: "Weather",
+                image: "public/weather.png",
+                link: "https://weather-app-theta-green.vercel.app/",
+                description: "Check the weather by clicking on the map or searching by location name.",
+                github: "https://github.com/hugomdmg/weather",
+                technologies: "Python, Flask, OpenWeather API, TypeScript, Angular.js, Docker"
+            },
+            {
+                title: "Launch simulation",
+                image: "public/earth-moon.png",
+                link: "https://earth-moon-alpha.vercel.app/",
+                description: "A simulation of the Earth-Moon system. Launch objects and observe their trajectories.",
+                github: "https://github.com/hugomdmg/solar_system",
+                technologies: "HTML, CSS, JavaScript"
+            },
+            {
+                title: "Previous portfolio",
+                image: "public/old-portfolio.png",
+                link: "https://main.d183snd9vhmvw3.amplifyapp.com/",
+                description: "An older portfolio showcasing projects with a similar structure but older code.",
+                github: "https://github.com/hugomdmg/portfolio",
+                technologies: "HTML, CSS, JavaScript, React.js"
+            }
+        ];
+
+        function generateList() {
+            const container = document.getElementById('list-container');
+            listData.forEach(item => {
+                const listItem = document.createElement('div');
+                listItem.classList.add('list-item');
+
+                listItem.innerHTML = `
+                <img src="${item.image}" alt="Image">
+                <div class="content">
+                    <h4>${item.title}</h4>
+                    <p>${item.description}</p>
+                    <p><strong>Technologies:</strong> ${item.technologies}</p>
+                    <div>
+                        <a href="${item.github}" target="_blank">GitHub</a>
+                        <a href="${item.link}" target="_blank">Link</a>
+                    </div>
+                </div>
+            `;
+
+                container.appendChild(listItem);
+            });
+        }
+
+        generateList();
+    </script>
+
+</body>
+
+</html>
